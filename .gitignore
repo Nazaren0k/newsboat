@@ -30,3 +30,5 @@ doc/podboat-cmds-linked.asciidoc
 /target/
 **/*.rs.bk
 .vscode
+/include/cxxbridge/
+/src/cxxbridge/

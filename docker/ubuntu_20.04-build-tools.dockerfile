@@ -100,6 +100,8 @@ RUN wget -O $HOME/rustup.sh --secure-protocol=TLSv1_2 https://sh.rustup.rs \
 
 ENV HOME /home/builder
 
+RUN cargo install cxxbridge-cmd
+
 ARG cc=gcc-9
 ARG cxx=g++-9
 

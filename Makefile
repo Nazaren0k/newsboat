@@ -104,6 +104,12 @@ all: doc $(NEWSBOAT) $(PODBOAT) mo-files
 
 NB_DEPS=xlicense.h $(LIB_OUTPUT) $(FILTERLIB_OUTPUT) $(NEWSBOAT_OBJS) $(RSSPPLIB_OUTPUT) $(NEWSBOATLIB_OUTPUT)
 
+include/cxxbridge/%.h: rust/libnewsboat-ffi/src/%.rs
+	cxxbridge $< --header > $@
+
+src/cxxbridge/%.cpp: rust/libnewsboat-ffi/src/%.rs
+	cxxbridge $< > $@
+
 $(NEWSBOATLIB_OUTPUT): $(RUST_SRCS) Cargo.lock
 	+$(CARGO) build --package libnewsboat-ffi $(CARGO_FLAGS)
 
@@ -145,7 +151,7 @@ clean-podboat:
 	$(RM) $(PODBOAT) $(PODBOAT_OBJS)
 
 clean-libboat:
-	$(RM) $(LIB_OUTPUT) $(LIB_OBJS)
+	$(RM) $(LIB_OUTPUT) $(LIB_OBJS) include/cxxbridge/*.h
 
 clean-librsspp:
 	$(RM) $(RSSPPLIB_OUTPUT) $(RSSPPLIB_OBJS)

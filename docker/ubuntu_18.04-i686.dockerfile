@@ -84,3 +84,5 @@ RUN wget -O $HOME/rustup.sh --secure-protocol=TLSv1_2 https://sh.rustup.rs \
     && chmod a+w $HOME/.cargo
 
 ENV HOME /home/builder
+
+RUN cargo install cxxbridge-cmd
