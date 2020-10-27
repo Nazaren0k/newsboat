@@ -19,7 +19,7 @@ freebsd_task:
 
     env:
         HOME: /home/testuser
-        PATH: $HOME/.cargo/bin:$PATH
+        PATH: /home/testuser/.cargo/bin:$PATH
         RUSTFLAGS: '-D warnings'
 
     after_cache_script: &after_cache_script
