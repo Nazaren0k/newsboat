@@ -14,7 +14,10 @@ CXX?=c++
 CXX_FOR_BUILD?=$(CXX)
 
 # compiler and linker flags
-DEFINES=-DLOCALEDIR=\"$(localedir)\"
+
+# We use single quotes to protect double quotes from the shell. We can't use
+# escaping because link-cplusplus crate fails to understand them.
+DEFINES=-DLOCALEDIR='"$(localedir)"'
 
 WARNFLAGS=-Werror -Wall -Wextra -Wunreachable-code
 INCLUDES=-Iinclude -Istfl -Ifilter -I. -Irss
