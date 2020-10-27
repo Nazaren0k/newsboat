@@ -13,7 +13,7 @@
 #include "3rd-party/optional.hpp"
 
 #include "configcontainer.h"
-#include "cxxbridge/utils.h"
+#include "include/cxxbridge/utils.h"
 #include "logger.h"
 
 namespace newsboat {
